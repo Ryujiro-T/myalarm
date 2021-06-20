@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+// Route::get('/mypage',function () {
+//     return view('mypage');
+// });
+
+Route::get('/mypage', 'MypageController@show') ->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
